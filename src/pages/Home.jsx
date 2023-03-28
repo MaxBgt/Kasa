@@ -14,10 +14,12 @@ const Home = () => {
           <h1 className="slogan">Chez vous, partout et ailleurs</h1>
         </div>
       </div>
-      <div className="card">
-        {data.map((logement) => (
-          <Card key={logement.id} logement={logement} />
-        ))}
+      <div className="card-contains">
+        <div className="card">
+          {data.map((logement) => (
+            <Card key={logement.id} logement={logement} />
+          ))}
+        </div>
       </div>
     </div>
   );

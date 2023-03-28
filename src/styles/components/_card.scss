@@ -1,0 +1,29 @@
+.card-contains {
+  background-color: #f7f7f7;
+  margin-top: 99px;
+  .card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    .card-container {
+      width: 25%;
+      margin-top: 50px;
+      border: 1px solid red;
+      background-color: #ff6060;
+
+      .card-img {
+        width: 80%;
+        height: 75%;
+      }
+      .card-title {
+        font-size: 18px;
+        line-height: 26px;
+        vertical-align: bottom;
+        text-align: left;
+        margin-bottom: 0;
+        margin-left: 20px;
+        color: #ffffff;
+      }
+    }
+  }
+}
