@@ -2,6 +2,9 @@ $color-text: #ff6060;
 $background-card: linear-gradient(to bottom, #ff6060, #8d3939);
 $color-text-card: #debbbb;
 
+body {
+  font-family: "Montserrat";
+}
 a {
   text-decoration: none;
   color: $color-text;
