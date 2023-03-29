@@ -86,23 +86,23 @@ const DisplayDescription = () => {
           onChange={handleSlideChange}
           showIndicators={false}
         >
-          {foundLogement.pictures.map((pic, index) => (
+          {foundLogement?.pictures.map((pic, index) => (
             <div key={index}>
               <img src={pic} className="desc-img" />
             </div>
           ))}
         </Carousel>
         <div className="img-counter">
-          {currentImg + 1}/{foundLogement.pictures.length}
+          {currentImg + 1}/{foundLogement?.pictures.length}
         </div>
       </div>
       <div className="desc-content">
         <div className="title">
-          <h1>{foundLogement.title}</h1>
-          <h2>{foundLogement.location}</h2>
+          <h1>{foundLogement?.title}</h1>
+          <h2>{foundLogement?.location}</h2>
           <div className="tags">
             <ul className="tags">
-              {foundLogement.tags.map((tag, index) => (
+              {foundLogement?.tags.map((tag, index) => (
                 <li key={index}>{tag}</li>
               ))}
             </ul>
@@ -111,15 +111,15 @@ const DisplayDescription = () => {
 
         <div className="host">
           <div className="host-content">
-            <p className="host-name">{foundLogement.host.name}</p>
+            <p className="host-name">{foundLogement?.host.name}</p>
             <img
-              src={foundLogement.host.picture}
-              alt={foundLogement.host.name}
+              src={foundLogement?.host.picture}
+              alt={foundLogement?.host.name}
               className="host-picture "
             />
           </div>
           <div className="rating">
-            {convertRatingToStars(foundLogement.rating)}
+            {convertRatingToStars(foundLogement?.rating)}
           </div>
         </div>
       </div>
@@ -127,12 +127,12 @@ const DisplayDescription = () => {
         <Dropdown
           className="drop-down"
           title="Description"
-          content={<p className="desc-content">{foundLogement.description}</p>}
+          content={<p className="desc-content">{foundLogement?.description}</p>}
         />
         <Dropdown
           className="drop-down-btn equip_btn"
           title="Équipements"
-          content={foundLogement.equipments.map((equip, index) => (
+          content={foundLogement?.equipments.map((equip, index) => (
             <ul key={index} className="equip-content">
               <li>{equip}</li>
             </ul>
