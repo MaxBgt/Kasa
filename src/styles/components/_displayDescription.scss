@@ -1,5 +1,4 @@
 .description-container {
-  position: relative;
   .carousel-control-prev {
     position: absolute;
     left: 23px;
@@ -9,6 +8,7 @@
     font-size: 45px;
     color: white;
     z-index: 1;
+    cursor: pointer;
   }
   .carousel-control-next {
     position: absolute;
@@ -19,6 +19,7 @@
     font-size: 45px;
     color: white;
     z-index: 1;
+    cursor: pointer;
   }
   .desc-img {
     height: 50vh;
@@ -27,7 +28,17 @@
     margin-top: 25px;
     border-radius: 25px;
   }
-
+  .img-counter {
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -95%);
+    color: white;
+    font-size: 18px;
+  }
+  .img-counter {
+    z-index: 1;
+  }
   .desc-content {
     display: flex;
     color: $color-text;
@@ -36,8 +47,16 @@
     margin-top: 24px;
   }
   .title {
-    h2,
-    h3 {
+    h1 {
+      font-size: 36px;
+      font-weight: 500;
+    }
+    h2 {
+      font-size: 18px;
+      font-weight: 500;
+    }
+    h1,
+    h2 {
       margin: 5px;
     }
   }

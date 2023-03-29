@@ -9,11 +9,16 @@ import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 
 const DisplayDescription = () => {
   const { id } = useParams();
   const foundLogement = jsonData.find((logement) => logement.id === id);
+  const [currentImg, setCurrentImg] = useState(0);
 
+  const handleSlideChange = (currentIndex) => {
+    setCurrentImg(currentIndex);
+  };
   function CustomNextArrow({ onClickHandler }) {
     return (
       <button className="carousel-control-next" onClick={onClickHandler}>
@@ -67,27 +72,34 @@ const DisplayDescription = () => {
 
   return (
     <div className="description-container">
-      <Carousel
-        showThumbs={false}
-        showStatus={false}
-        infiniteLoop={true}
-        renderArrowPrev={(onClickHandler, hasPrev) =>
-          hasPrev && <CustomPrevArrow onClickHandler={onClickHandler} />
-        }
-        renderArrowNext={(onClickHandler, hasNext) =>
-          hasNext && <CustomNextArrow onClickHandler={onClickHandler} />
-        }
-      >
-        {foundLogement.pictures.map((pic, index) => (
-          <div key={index}>
-            <img src={pic} className="desc-img" />
-          </div>
-        ))}
-      </Carousel>
+      <div className="carousel">
+        <Carousel
+          showThumbs={false}
+          showStatus={false}
+          infiniteLoop={true}
+          renderArrowPrev={(onClickHandler, hasPrev) =>
+            hasPrev && <CustomPrevArrow onClickHandler={onClickHandler} />
+          }
+          renderArrowNext={(onClickHandler, hasNext) =>
+            hasNext && <CustomNextArrow onClickHandler={onClickHandler} />
+          }
+          onChange={handleSlideChange}
+          showIndicators={false}
+        >
+          {foundLogement.pictures.map((pic, index) => (
+            <div key={index}>
+              <img src={pic} className="desc-img" />
+            </div>
+          ))}
+        </Carousel>
+        <div className="img-counter">
+          {currentImg + 1}/{foundLogement.pictures.length}
+        </div>
+      </div>
       <div className="desc-content">
         <div className="title">
-          <h2>{foundLogement.title}</h2>
-          <h3>{foundLogement.location}</h3>
+          <h1>{foundLogement.title}</h1>
+          <h2>{foundLogement.location}</h2>
           <div className="tags">
             <ul className="tags">
               {foundLogement.tags.map((tag, index) => (
