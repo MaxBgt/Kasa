@@ -1,11 +1,13 @@
 .card-contains {
   background-color: #f7f7f7;
   margin-top: 99px;
+
   .card {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     padding-bottom: 50px;
+
     .card-container {
       position: relative;
       display: flex;
@@ -20,6 +22,7 @@
         border-radius: 10px;
         object-fit: cover;
       }
+
       .card-title {
         position: absolute;
         padding: 5px 10px;
@@ -32,6 +35,47 @@
         margin: 0;
         border-radius: 5px;
         color: #ffffff;
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .card {
+      .card-container {
+        width: 45%;
+
+        .card-img {
+          width: 30vw;
+          height: 35vh;
+        }
+
+        .card-title {
+          font-size: 13px;
+          line-height: 22px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 10px;
+    background: none;
+
+    .card {
+      flex-direction: column;
+      width: 100%;
+      .card-container {
+        width: 100%;
+        margin-top: 22px;
+        .card-img {
+          width: 100%;
+          height: 50vh;
+        }
+
+        .card-title {
+          font-size: 12px;
+          line-height: 18px;
+        }
       }
     }
   }

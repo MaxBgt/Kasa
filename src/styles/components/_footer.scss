@@ -5,6 +5,7 @@
   background: black;
   margin-top: 50px;
   height: 209px;
+
   .logo-footer {
     display: flex;
     justify-content: center;
@@ -19,7 +20,31 @@
     line-height: 34px;
     font-weight: 500;
   }
+
   .icon-footer {
     margin-right: 10px;
+  }
+
+  @media (max-width: 1024px) {
+    .footer-title {
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: auto;
+    padding: 30px 0;
+
+    .footer-title {
+      font-size: 16px;
+      line-height: 26px;
+      text-align: center;
+    }
+
+    .icon-footer {
+      margin-right: 5px;
+    }
   }
 }
