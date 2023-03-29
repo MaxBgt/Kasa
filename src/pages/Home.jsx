@@ -3,6 +3,7 @@ import homeImg from "../assets/img/IMG.png";
 import Card from "../components/Card";
 import jsonData from "../db.json";
 import { useState } from "react";
+import Footer from "../components/Footer";
 const Home = () => {
   const [data, setData] = useState(jsonData);
   return (
@@ -21,6 +22,7 @@ const Home = () => {
             .slice(0, 18)}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
