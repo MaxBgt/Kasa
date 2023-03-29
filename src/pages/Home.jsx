@@ -16,9 +16,9 @@ const Home = () => {
       </div>
       <div className="card-contains">
         <div className="card">
-          {data.map((logement) => (
-            <Card key={logement.id} logement={logement} />
-          ))}
+          {data
+            .map((logement) => <Card key={logement.id} logement={logement} />)
+            .slice(0, 18)}
         </div>
       </div>
     </div>
