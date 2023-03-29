@@ -5,6 +5,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding-bottom: 50px;
     .card-container {
       position: relative;
       display: flex;
@@ -14,8 +15,8 @@
       margin-top: 50px;
 
       .card-img {
-        width: 80%;
-        height: 100%;
+        width: 20vw;
+        height: 40vh;
         border-radius: 10px;
         object-fit: cover;
       }
