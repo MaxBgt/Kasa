@@ -9,7 +9,7 @@ const About = () => {
       <Header />
       <div className="about-page">
         <div className="about-page-img">
-          <img src={aboutImg} alt="about image" className="about-img" />
+          <img src={aboutImg} alt="header A propos" className="about-img" />
         </div>
       </div>
       <div className="drop-down">

@@ -88,7 +88,7 @@ const DisplayDescription = () => {
         >
           {foundLogement?.pictures.map((pic, index) => (
             <div key={index}>
-              <img src={pic} className="desc-img" />
+              <img src={pic} className="desc-img" alt={pic.id} />
             </div>
           ))}
         </Carousel>
