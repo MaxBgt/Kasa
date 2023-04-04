@@ -8,10 +8,10 @@ const Footer = () => {
     <div className="footer">
       <div className="logo-footer">
         <img src={logoFooter} alt="Logo Footer" />
-        <h3 className="footer-title">
+        <h2 className="footer-title">
           <FontAwesomeIcon icon={faCopyright} className="icon-footer" />
           2020 Kasa. All rights reserved
-        </h3>
+        </h2>
       </div>
     </div>
   );

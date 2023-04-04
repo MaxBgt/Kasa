@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-import homeImg from "../assets/img/IMG.png";
+import homeImg from "../assets/img/IMG.jpg";
 import Card from "../components/Card";
 import jsonData from "../db.json";
 import { useState } from "react";
