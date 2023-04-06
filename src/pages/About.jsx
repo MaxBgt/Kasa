@@ -1,12 +1,9 @@
-import Header from "../components/Header";
 import aboutImg from "../assets/img/kalen-emsley-Bkci_8qcdvQ-unsplash 2.png";
-import Footer from "../components/Footer";
 import DropDown from "../components/DropDown";
 
 const About = () => {
   return (
     <div>
-      <Header />
       <div className="about-page">
         <div className="about-page-img">
           <img src={aboutImg} alt="header A propos" className="about-img" />
@@ -57,7 +54,6 @@ const About = () => {
           }
         />
       </div>
-      <Footer />
     </div>
   );
 };

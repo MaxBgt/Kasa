@@ -1,14 +1,12 @@
-import Header from "../components/Header";
 import homeImg from "../assets/img/IMG.jpg";
 import Card from "../components/Card";
 import jsonData from "../db.json";
 import { useState } from "react";
-import Footer from "../components/Footer";
+
 const Home = () => {
   const [data] = useState(jsonData);
   return (
     <div>
-      <Header />
       <div className="home-page">
         <div className="home-img-container">
           <img src={homeImg} alt="page d'accueil" className="home-img" />
@@ -17,12 +15,11 @@ const Home = () => {
       </div>
       <div className="card-contains">
         <div className="card">
-          {data
-            .map((logement) => <Card key={logement.id} logement={logement} />)
-            .slice(0, 18)}
+          {data.map((logement) => (
+            <Card key={logement.id} logement={logement} />
+          ))}
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

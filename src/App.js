@@ -8,16 +8,16 @@ import NotFound from "./pages/NotFound";
 
 function App() {
   return (
-    <Wrapper>
-      <BrowserRouter>
+    <BrowserRouter>
+      <Wrapper>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/A propos" element={<About />} />
           <Route path="*" element={<NotFound />} />
           <Route path="description/:id" element={<Descriptions />} />
         </Routes>
-      </BrowserRouter>
-    </Wrapper>
+      </Wrapper>
+    </BrowserRouter>
   );
 }
 
