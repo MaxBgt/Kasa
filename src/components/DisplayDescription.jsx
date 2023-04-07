@@ -10,6 +10,7 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import NotFound from "../pages/NotFound";
 
 const DisplayDescription = () => {
   const { id } = useParams();
@@ -70,75 +71,83 @@ const DisplayDescription = () => {
   }
 
   return (
-    <div className="description-container">
-      <div className="carousel">
-        <Carousel
-          showThumbs={false}
-          showStatus={false}
-          infiniteLoop={true}
-          renderArrowPrev={(onClickHandler, hasPrev) =>
-            hasPrev && <CustomPrevArrow onClickHandler={onClickHandler} />
-          }
-          renderArrowNext={(onClickHandler, hasNext) =>
-            hasNext && <CustomNextArrow onClickHandler={onClickHandler} />
-          }
-          onChange={handleSlideChange}
-          showIndicators={false}
-        >
-          {foundLogement?.pictures.map((pic, index) => (
-            <div key={index}>
-              <img src={pic} className="desc-img" alt={pic.id} />
-            </div>
-          ))}
-        </Carousel>
-        <div className="img-counter">
-          {currentImg + 1}/{foundLogement?.pictures.length}
-        </div>
-      </div>
-      <div className="desc-content">
-        <div className="title">
-          <h1>{foundLogement?.title}</h1>
-          <h2>{foundLogement?.location}</h2>
-          <div className="tags">
-            <ul className="tags">
-              {foundLogement?.tags.map((tag, index) => (
-                <li key={index}>{tag}</li>
+    <>
+      {foundLogement ? (
+        <div className="description-container">
+          <div className="carousel">
+            <Carousel
+              showThumbs={false}
+              showStatus={false}
+              infiniteLoop={true}
+              renderArrowPrev={(onClickHandler, hasPrev) =>
+                hasPrev && <CustomPrevArrow onClickHandler={onClickHandler} />
+              }
+              renderArrowNext={(onClickHandler, hasNext) =>
+                hasNext && <CustomNextArrow onClickHandler={onClickHandler} />
+              }
+              onChange={handleSlideChange}
+              showIndicators={false}
+            >
+              {foundLogement?.pictures.map((pic, index) => (
+                <div key={index}>
+                  <img src={pic} className="desc-img" alt={pic.id} />
+                </div>
               ))}
-            </ul>
+            </Carousel>
+            <div className="img-counter">
+              {currentImg + 1}/{foundLogement?.pictures.length}
+            </div>
           </div>
-        </div>
+          <div className="desc-content">
+            <div className="title">
+              <h1>{foundLogement?.title}</h1>
+              <h2>{foundLogement?.location}</h2>
+              <div className="tags">
+                <ul className="tags">
+                  {foundLogement?.tags.map((tag, index) => (
+                    <li key={index}>{tag}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
 
-        <div className="host">
-          <div className="host-content">
-            <p className="host-name">{foundLogement?.host.name}</p>
-            <img
-              src={foundLogement?.host.picture}
-              alt={foundLogement?.host.name}
-              className="host-picture "
+            <div className="host">
+              <div className="host-content">
+                <p className="host-name">{foundLogement?.host.name}</p>
+                <img
+                  src={foundLogement?.host.picture}
+                  alt={foundLogement?.host.name}
+                  className="host-picture "
+                />
+              </div>
+              <div className="rating">
+                {convertRatingToStars(foundLogement?.rating)}
+              </div>
+            </div>
+          </div>
+          <div className="drop-down-description">
+            <Dropdown
+              className="drop-down"
+              title="Description"
+              content={
+                <p className="desc-content">{foundLogement?.description}</p>
+              }
+            />
+            <Dropdown
+              className="drop-down-btn equip_btn"
+              title="Équipements"
+              content={foundLogement?.equipments.map((equip, index) => (
+                <ul key={index} className="equip-content">
+                  <li>{equip}</li>
+                </ul>
+              ))}
             />
           </div>
-          <div className="rating">
-            {convertRatingToStars(foundLogement?.rating)}
-          </div>
         </div>
-      </div>
-      <div className="drop-down-description">
-        <Dropdown
-          className="drop-down"
-          title="Description"
-          content={<p className="desc-content">{foundLogement?.description}</p>}
-        />
-        <Dropdown
-          className="drop-down-btn equip_btn"
-          title="Équipements"
-          content={foundLogement?.equipments.map((equip, index) => (
-            <ul key={index} className="equip-content">
-              <li>{equip}</li>
-            </ul>
-          ))}
-        />
-      </div>
-    </div>
+      ) : (
+        <NotFound />
+      )}
+    </>
   );
 };
 
