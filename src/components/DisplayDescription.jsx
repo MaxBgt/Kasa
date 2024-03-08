@@ -9,21 +9,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import NotFound from "../pages/NotFound";
+import Gallery from "./Gallery";
 
 const DisplayDescription = () => {
   const { id } = useParams();
   const foundLogement = jsonData.find((logement) => logement.id === id);
-  const [indexImg, setIndexImg] = useState(0);
-
-  const nextSlide = () => {
-    setIndexImg((indexImg + 1) % foundLogement.pictures.length);
-  };
-  const prevSlide = () => {
-    setIndexImg(
-      (indexImg - 1 + foundLogement.pictures.length) %
-        foundLogement.pictures.length
-    );
-  };
+ 
   function convertRatingToStars(rating) {
     const fullStars = Math.floor(rating);
     const halfStars = Math.round(rating - fullStars);
@@ -63,37 +54,7 @@ const DisplayDescription = () => {
     <>
       {foundLogement ? (
         <div className="description-container">
-          <div className="carousel">
-            {foundLogement?.pictures.map((pic, index) => (
-              <div
-                key={index}
-                className={index === indexImg ? "slide active" : "slide"}
-              >
-                <img src={pic} className="desc-img" alt={pic.id} />
-              </div>
-            ))}
-            <div className="navigation">
-              <button className="carousel-control-prev " onClick={prevSlide}>
-                {foundLogement.pictures.length > 1 ? (
-                  <FontAwesomeIcon icon={faChevronLeft} />
-                ) : (
-                  ""
-                )}
-              </button>
-              <button className="carousel-control-next" onClick={nextSlide}>
-                {foundLogement.pictures.length > 1 ? (
-                  <FontAwesomeIcon icon={faChevronRight} />
-                ) : (
-                  ""
-                )}
-              </button>
-            </div>
-            <div className="img-counter">
-              {foundLogement.pictures.length > 1
-                ? `${indexImg + 1} / ${foundLogement?.pictures.length}`
-                : ``}
-            </div>
-          </div>
+        <Gallery />
           <div className="desc-content">
             <div className="title">
               <h1>{foundLogement?.title}</h1>
